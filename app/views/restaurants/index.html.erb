@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+
+      <% @restaurants.each do |restaurant| %>
+
+        <div class="col-12 col-md-3">
+          <div class="card m-2">
+            <img class="card-img-top" src="https://source.unsplash.com/random" style="width:150px" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"> <%= restaurant.name %> </h5>
+              <p class="card-text"><%= restaurant.address %></p>
+            </div>
+            <div class="card-footer">
+              <%= link_to restaurant.name, restaurant_path(restaurant), class:"btn btn-primary" %>
+
+                <%= link_to "Delete",
+                        restaurant_path(restaurant),
+                        method: :delete,
+                        data: { confirm: "Are you sure?",
+                        class: "btn btn-danger" } %>
+            </div>
+          </div>
+      </div>
+
+      <% end %>
+  </div>
+</div>
